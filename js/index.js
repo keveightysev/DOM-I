@@ -49,12 +49,16 @@ let middleImg = document.getElementById("middle-img").setAttribute('src', siteCo
 
 // nav
 
-let nav = document.querySelectorAll('nav a');
-for (let i = 0; i < nav.length; i++) {
-  nav[i].textContent = siteContent["nav"]["nav-item-" + i];
+let nav = document.querySelector("nav");
+
+let navLinks = document.querySelectorAll('nav a');
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].textContent = siteContent["nav"]["nav-item-" + (i+1)];
 }
 
 // Call to Action
+
+siteContent["cta"]["h1"] = "DOM<br> Is<br> Awesome"
 
 let cta = document.querySelector(".cta-text");
 cta.innerHTML = `<h1> ${siteContent["cta"]["h1"]}</h1><button>${siteContent["cta"]["button"]}</button>`;
@@ -81,3 +85,17 @@ p[5].innerHTML = siteContent["contact"]["address"];
 p[6].textContent = siteContent["contact"]["phone"];
 p[7].textContent = siteContent["contact"]["email"];
 p[8].textContent = siteContent["footer"]["copyright"];
+
+// new content
+
+navLinks.forEach( element => element.style.color = "green");
+
+let coupons = document.createElement('a');
+coupons.textContent = "Coupons";
+coupons.href = "#";
+nav.appendChild(coupons);
+
+let home = document.createElement('a');
+home.href = "#";
+home.textContent = "Home";
+nav.prepend(home);
