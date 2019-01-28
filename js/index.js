@@ -40,3 +40,44 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// Images
+let ctaImg = document.getElementById("cta-img");
+ctaImg.src = siteContent["cta"]["img-src"];
+
+let middleImg = document.getElementById("middle-img").setAttribute('src', siteContent["main-content"]['middle-img-src'])
+
+// nav
+
+let nav = document.querySelectorAll('nav a');
+for (let i = 0; i < nav.length; i++) {
+  nav[i].textContent = siteContent["nav"]["nav-item-" + i];
+}
+
+// Call to Action
+
+let cta = document.querySelector(".cta-text");
+cta.innerHTML = `<h1> ${siteContent["cta"]["h1"]}</h1><button>${siteContent["cta"]["button"]}</button>`;
+
+// H4s
+
+let headers = document.getElementsByTagName("h4");
+headers[0].textContent = siteContent["main-content"]["features-h4"];
+headers[1].textContent = siteContent["main-content"]["about-h4"];
+headers[2].textContent = siteContent["main-content"]["services-h4"];
+headers[3].textContent = siteContent["main-content"]["product-h4"];
+headers[4].textContent = siteContent["main-content"]["vision-h4"];
+headers[5].textContent = siteContent["contact"]["contact-h4"];
+
+// Paragraphs
+let p = document.getElementsByTagName("p");
+p[0].textContent = siteContent["main-content"]["features-content"];
+p[1].textContent = siteContent["main-content"]["about-content"];
+p[2].textContent = siteContent["main-content"]["services-content"];
+p[3].textContent = siteContent["main-content"]["product-content"];
+p[4].textContent = siteContent["main-content"]["vision-content"];
+siteContent["contact"]["address"] = "123 Way 456 Street<br> Somewhere, USA"
+p[5].innerHTML = siteContent["contact"]["address"];
+p[6].textContent = siteContent["contact"]["phone"];
+p[7].textContent = siteContent["contact"]["email"];
+p[8].textContent = siteContent["footer"]["copyright"];
